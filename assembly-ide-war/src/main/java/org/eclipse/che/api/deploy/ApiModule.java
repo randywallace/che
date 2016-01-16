@@ -24,6 +24,8 @@ import org.eclipse.che.api.machine.server.recipe.PermissionsChecker;
 import org.eclipse.che.api.machine.server.recipe.PermissionsCheckerImpl;
 import org.eclipse.che.api.machine.server.recipe.RecipeLoader;
 import org.eclipse.che.api.machine.server.recipe.RecipeService;
+import org.eclipse.che.api.workspace.server.stack.StackLoader;
+import org.eclipse.che.api.workspace.server.stack.StackService;
 import org.eclipse.che.api.project.server.ProjectTemplateDescriptionLoader;
 import org.eclipse.che.api.project.server.ProjectTemplateRegistry;
 import org.eclipse.che.api.project.server.ProjectTemplateService;
@@ -78,6 +80,7 @@ public class ApiModule extends AbstractModule {
         bind(org.eclipse.che.security.oauth.OAuthAuthenticationService.class);
 
         bind(RecipeService.class);
+        bind(StackService.class);
         bind(PermissionsChecker.class).to(PermissionsCheckerImpl.class);
 
 //        bind(LocalFSMountStrategy.class).to(MappedDirectoryLocalFSMountStrategy.class);
@@ -117,6 +120,13 @@ public class ApiModule extends AbstractModule {
         Multibinder.newSetBinder(binder(), String.class, Names.named("predefined.recipe.path"))
                    .addBinding()
                    .toInstance("predefined-recipes.json");
+        bind(StackLoader.class);
+        Multibinder.newSetBinder(binder(), String.class, Names.named("predefined.stack.path"))
+                   .addBinding()
+                   .toInstance("predefined-stacks.json");
+        Multibinder.newSetBinder(binder(), String.class, Names.named("predefined.stack.icon.folder.path"))
+                   .addBinding()
+                   .toInstance("img");
 
         bindConstant().annotatedWith(Names.named(org.eclipse.che.api.machine.server.WsAgentLauncherImpl.WS_AGENT_PROCESS_START_COMMAND))
                       .to("rm -rf ~/che && mkdir -p ~/che && unzip /mnt/che/ws-agent.zip -d ~/che/ws-agent && " +
