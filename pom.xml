@@ -16,11 +16,11 @@
     <parent>
         <artifactId>maven-depmgt-pom</artifactId>
         <groupId>org.eclipse.che.depmgt</groupId>
-        <version>4.0.0-beta-11-SNAPSHOT</version>
+        <version>4.0.0-beta-12-SNAPSHOT</version>
     </parent>
     <groupId>org.eclipse.che</groupId>
     <artifactId>che-parent</artifactId>
-    <version>4.0.0-beta-11-SNAPSHOT</version>
+    <version>4.0.0-beta-12-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Che IDE :: Parent</name>
     <modules>
@@ -35,9 +35,6 @@
         <tag>HEAD</tag>
         <url>https://github.com/codenvy/che</url>
     </scm>
-    <properties>
-        <org.apache.tomcat.version>7.0.50</org.apache.tomcat.version>
-    </properties>
     <repositories>
         <repository>
             <id>codenvy-public-repo</id>
