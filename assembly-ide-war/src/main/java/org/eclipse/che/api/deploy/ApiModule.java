@@ -124,9 +124,6 @@ public class ApiModule extends AbstractModule {
         Multibinder.newSetBinder(binder(), String.class, Names.named("predefined.stack.path"))
                    .addBinding()
                    .toInstance("predefined-stacks.json");
-        Multibinder.newSetBinder(binder(), String.class, Names.named("predefined.stack.icon.folder.path"))
-                   .addBinding()
-                   .toInstance("img");
 
         bindConstant().annotatedWith(Names.named(org.eclipse.che.api.machine.server.WsAgentLauncherImpl.WS_AGENT_PROCESS_START_COMMAND))
                       .to("rm -rf ~/che && mkdir -p ~/che && unzip /mnt/che/ws-agent.zip -d ~/che/ws-agent && " +
