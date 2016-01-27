@@ -16,8 +16,8 @@ RUN mkdir /home/user/.che && \
    --no-check-certificate \
    --header "Cookie: oraclelicense=accept-securebackup-cookie" \
    -qO- \
-   "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-b17/jre-$JAVA_VERSION-linux-x64.tar.gz" | sudo tar -zx -C /opt/
-ENV JAVA_HOME /opt/jre$JAVA_VERSION_PREFIX
+   "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-b17/jdk-$JAVA_VERSION-linux-x64.tar.gz" | sudo tar -zx -C /opt/
+ENV JAVA_HOME /opt/jdk$JAVA_VERSION_PREFIX
 ENV PATH $JAVA_HOME/bin:$PATH
 
 # expose 8080 port and a range of ports for runners
